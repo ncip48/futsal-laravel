@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::post('/schedule', [ScheduleController::class, 'getSchedule']);
 Route::post('/booking', [TransactionController::class, 'createTransaction']);
+Route::get('/booking', [TransactionController::class, 'showTransaction']);
 Route::get('/schedule', function () {
     return redirect('/');
 });
+Route::post('/searchbykode', [TransactionController::class, 'searchTransaction']);

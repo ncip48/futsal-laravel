@@ -332,15 +332,15 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <label>Nama Lengkap</label>
-                                                <input type="text" name="name" placeholder="John Doe">
+                                                <input type="text" name="name" placeholder="John Doe" required>
                                             </div>
                                             <div class="col-lg-12">
                                                 <label>Email</label>
-                                                <input type="email" name="email" placeholder="johndoe@gmail.com">
+                                                <input type="email" name="email" placeholder="johndoe@gmail.com" required>
                                             </div>
                                             <div class="col-lg-12">
                                                 <label>No HP</label>
-                                                <input type="tel" name="handphone" placeholder="085156842765">
+                                                <input type="tel" name="handphone" placeholder="085156842765" required>
                                             </div>
                                             <div class="col-lg-12">
                                                 <label>Tanggal</label>
@@ -354,7 +354,7 @@
                                                 <label>Mulai</label>
                                                 <div class="calendar-input">
                                                     <input type="text" class="input-field" readonly
-                                                        style="cursor: default" id="starts" placeholder="08:00">
+                                                        style="cursor: default" id="starts" placeholder="08:00" required>
                                                     <i class="flaticon-clock"></i>
                                                 </div>
                                             </div>
@@ -362,13 +362,12 @@
                                                 <label>Selesai</label>
                                                 <div class="calendar-input">
                                                     <input type="text" class="input-field check-out" id="ends"
-                                                        placeholder="18:00">
+                                                        placeholder="18:00" required>
                                                     <i class="flaticon-clock"></i>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="d-flex align-items-center justify-content-between">
-
                                                     <h4>Total</h4>
                                                     <h4 id="total-div">Rp. 0</h4>
                                                 </div>

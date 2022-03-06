@@ -2,12 +2,9 @@
 
 <head>
     <title>@yield('title')</title>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
-
+    <link rel="shortcut icon" type="image/png" href="{{ asset('/images/favicon.png') }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 
@@ -26,7 +23,7 @@
                                 <div class="searchbar-open">
                                     <i class="flaticon-magnifier"></i>
                                 </div>
-                                <div class="user-dropdown-icon">
+                                {{-- <div class="user-dropdown-icon">
                                     <i class="flaticon-user"></i>
                                     <div class="account-dropdown">
                                         <ul>
@@ -48,7 +45,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="mobile-menu d-flex ">
                                     <div class="top-search-bar m-0 d-block d-xl-none">
                                     </div>
@@ -112,7 +109,7 @@
                                 <div class="searchbar-open">
                                     <i class="flaticon-magnifier"></i>
                                 </div>
-                                <div class="user-dropdown-icon">
+                                {{-- <div class="user-dropdown-icon">
                                     <i class="flaticon-user"></i>
                                     <div class="account-dropdown">
                                         <ul>
@@ -134,7 +131,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="sidebar-contact">
                                 <ul>
@@ -148,15 +145,16 @@
                     </div>
                 </div>
             </div>
-            <form>
+            <form action="{{ url('searchbykode') }}" method="POST" style="margin:0px">
+                @csrf
                 <div class="main-searchbar">
                     <div class="searchbar-close">
                         <i class="bx bx-x"></i>
                     </div>
-                    <input type="text" placeholder="Search Here......">
-                    <div class="searchbar-icon">
+                    <input type="text" placeholder="Kode Booking......" name="kode">
+                    <button type="submit" class="searchbar-icon" style="border:none;outline: none;">
                         <i class="bx bx-search"></i>
-                    </div>
+                    </button>
                 </div>
             </form>
         </div>
