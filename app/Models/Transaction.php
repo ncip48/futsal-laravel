@@ -9,4 +9,5 @@ class Transaction extends Model
 {
     use HasFactory;
     protected $table = 'transactions';
+    protected $fillable = ['id_product', 'code_booking', 'name', 'email', 'handphone', 'duration', 'total_price', 'start', 'end', 'status'];
 }

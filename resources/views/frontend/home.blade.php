@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Beranda - Futsal Enjoyers')
+@section('title', 'Beranda')
 
 @section('content')
     <div class="main-banner-2">

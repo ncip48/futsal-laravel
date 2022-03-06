@@ -326,20 +326,21 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-6">
                                 <div class="p-sidebar-form">
-                                    <form>
+                                    <form method="POST" action={{ url('booking') }}>
+                                        @csrf
                                         <h5 class="package-d-head">Booking Lapangan Ini</h5>
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <label>Nama Lengkap</label>
-                                                <input type="text" placeholder="Nama Lengkap" name="John Doe">
+                                                <input type="text" name="name" placeholder="John Doe">
                                             </div>
                                             <div class="col-lg-12">
                                                 <label>Email</label>
-                                                <input type="email" placeholder="Email" name="johndoe@gmail.com">
+                                                <input type="email" name="email" placeholder="johndoe@gmail.com">
                                             </div>
                                             <div class="col-lg-12">
                                                 <label>No HP</label>
-                                                <input type="tel" placeholder="No HP" name="085156842765">
+                                                <input type="tel" name="handphone" placeholder="085156842765">
                                             </div>
                                             <div class="col-lg-12">
                                                 <label>Tanggal</label>
@@ -352,7 +353,7 @@
                                             <div class="col-lg-6">
                                                 <label>Mulai</label>
                                                 <div class="calendar-input">
-                                                    <input type="text" name="starts" class="input-field" readonly
+                                                    <input type="text" class="input-field" readonly
                                                         style="cursor: default" id="starts" placeholder="08:00">
                                                     <i class="flaticon-clock"></i>
                                                 </div>
@@ -360,16 +361,30 @@
                                             <div class="col-lg-6">
                                                 <label>Selesai</label>
                                                 <div class="calendar-input">
-                                                    <input type="text" name="ends" class="input-field check-out" id="ends"
+                                                    <input type="text" class="input-field check-out" id="ends"
                                                         placeholder="18:00">
                                                     <i class="flaticon-clock"></i>
                                                 </div>
                                             </div>
+                                            <div class="col-lg-12">
+                                                <div class="d-flex align-items-center justify-content-between">
+
+                                                    <h4>Total</h4>
+                                                    <h4 id="total-div">Rp. 0</h4>
+                                                </div>
+                                            </div>
                                             <input type="hidden" class="form-control" value="{{ $date }}"
-                                                id="tgl" name="tgl" aria-describedby="emailHelp" placeholder="Tanggal"
-                                                required readonly>
+                                                id="tgl" aria-describedby="emailHelp" placeholder="Tanggal" required
+                                                readonly>
+                                            <input type="hidden" class="input-field" id="price"
+                                                value={{ $product->price }}>
+                                            <input type="hidden" name="id_product" class="input-field"
+                                                value="{{ $product->id }}">
+                                            <input type="hidden" name="duration" class="input-field" id="duration">
                                             <input type="hidden" name="start" class="input-field" id="datestart">
                                             <input type="hidden" name="end" class="input-field" id="dateend">
+                                            <input type="hidden" placeholder="0" value="0" name="total_price" readonly
+                                                id="total_price">
                                             </h4>
                                             <div class="col-lg-12">
                                                 <input type="submit" value="Pesan">

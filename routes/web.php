@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::post('/schedule', [ScheduleController::class, 'getSchedule']);
+Route::post('/booking', [TransactionController::class, 'createTransaction']);
 Route::get('/schedule', function () {
     return redirect('/');
 });

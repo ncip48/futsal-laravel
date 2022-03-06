@@ -463,19 +463,19 @@ $(document).ready(function () {
         var time_start = addHours(dt, 0);
         $("#starts").val(time);
         $("#datestart").val(getFullDate(time_start));
-        $("#result-date").html(
-            "Anda memilih tanggal " +
-                formatDate(date, "date monthName year") +
-                " Jam " +
-                time
-        );
+        // $("#result-date").html(
+        //     "Anda memilih tanggal " +
+        //         formatDate(date, "date monthName year") +
+        //         " Jam " +
+        //         time
+        // );
     });
 
     $(".check-out").timepicker({
         timeFormat: "H:mm",
         interval: 60,
         minTime: "08:00",
-        maxTime: "16:00",
+        maxTime: "18:00",
         dynamic: false,
         dropdown: true,
         scrollbar: true,
@@ -490,6 +490,17 @@ $(document).ready(function () {
             var time_end = addHours(de, 0);
             // element.siblings('span.help-line').text(text);
             $("#dateend").val(getFullDate(time_end));
+            var price = $("#price").val();
+            var awal = new Date($("#datestart").val());
+            var akhir = new Date(time_end);
+            var hours = Math.abs(awal - akhir) / 36e5;
+            // console.log(hours);
+            if (awal > akhir) return;
+            var finalPrice = Number(hours) * Number(price);
+            $("#dateend").val(getFullDate(time_end));
+            $("#duration").val(hours);
+            $("#total_price").val(finalPrice);
+            $("#total-div").html(finalPrice);
         },
     });
 });

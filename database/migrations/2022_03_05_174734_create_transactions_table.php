@@ -20,6 +20,7 @@ class CreateTransactionsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('handphone');
+            $table->integer('duration');
             $table->string('total_price');
             $table->dateTime('start');
             $table->dateTime('end');

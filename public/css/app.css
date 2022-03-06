@@ -23614,7 +23614,7 @@ li.package-card-sm .package-info h5 span {
 .package-details .package-tab .nav-pills button.nav-link {
     margin-right: 20px;
     border: 2px solid #ff7f47;
-    padding: 10px 36px;
+    /* padding: 10px 36px; */
     font-weight: 700;
     font-size: 20px;
     color: #262339;
