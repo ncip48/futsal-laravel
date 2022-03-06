@@ -11,15 +11,6 @@
         live: true,
     }).init();
     $(".check-in").datepicker({ dateFormat: "yy-mm-dd", duration: "medium" });
-    $(".check-out").timepicker({
-        timeFormat: "H:mm",
-        interval: 60,
-        minTime: "08:00",
-        maxTime: "12:00",
-        dynamic: false,
-        dropdown: true,
-        scrollbar: true,
-    });
     $(".ticket-book").datepicker({ dateFormat: "d MM yy", duration: "medium" });
     $(".main-gallary").magnificPopup({
         type: "image",
@@ -464,19 +455,41 @@ function getFullDate(dates) {
 
 $(document).ready(function () {
     // $("#form-div").hide();
+    let date = $("#tgl").val();
 
     $(".button-schedule").click(function () {
         var time = $(this).attr("id");
-        let date = $("#tgl").val();
         var dt = new Date(date + " " + time);
         var time_start = addHours(dt, 0);
-        $("#start").val(time);
-        $("#date").val(getFullDate(time_start));
+        $("#starts").val(time);
+        $("#datestart").val(getFullDate(time_start));
         $("#result-date").html(
             "Anda memilih tanggal " +
                 formatDate(date, "date monthName year") +
                 " Jam " +
                 time
         );
+    });
+
+    $(".check-out").timepicker({
+        timeFormat: "H:mm",
+        interval: 60,
+        minTime: "08:00",
+        maxTime: "16:00",
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true,
+        change: function (time) {
+            // the input field
+            var element = $(this),
+                text;
+            // get access to this Timepicker instance
+            var timepicker = element.timepicker();
+            text = timepicker.format(time);
+            var de = new Date(date + " " + text);
+            var time_end = addHours(de, 0);
+            // element.siblings('span.help-line').text(text);
+            $("#dateend").val(getFullDate(time_end));
+        },
     });
 });

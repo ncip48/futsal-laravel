@@ -3151,7 +3151,7 @@ header > .header-area .nav-right {
 .package-d-sidebar .p-sidebar-form input,
 .package-d-sidebar .p-sidebar-form textarea,
 .package-d-sidebar .p-sidebar-form select {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border: 1px solid #e1e1e1;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;

@@ -53,36 +53,7 @@
                                 <p>800 Review</p>
                             </div>
                         </div>
-                        <div class="p-short-info">
-                            <div class="single-info">
-                                <i class="flaticon-clock"></i>
-                                <div class="info-texts">
-                                    <strong>Lapangan Tersedia</strong>
-                                    <p>{{ $countAvailable }}</p>
-                                </div>
-                            </div>
-                            <div class="single-info">
-                                <i class="flaticon-footprints"></i>
-                                <div class="info-texts">
-                                    <strong>Tour Type</strong>
-                                    <p>4 Days</p>
-                                </div>
-                            </div>
-                            <div class="single-info">
-                                <i class="flaticon-traveller"></i>
-                                <div class="info-texts">
-                                    <strong>Group Size</strong>
-                                    <p>30 People</p>
-                                </div>
-                            </div>
-                            <div class="single-info">
-                                <i class="flaticon-translate"></i>
-                                <div class="info-texts">
-                                    <strong>Languages</strong>
-                                    <p>Any Language</p>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="package-tab">
                             <ul class="nav nav-pills" id="pills-tab" role="tablist">
                                 @foreach ($time as $t)
@@ -112,6 +83,38 @@
                                     @endif
                                 @endforeach
                             </ul>
+
+                            <div class="p-short-info">
+                                <div class="single-info">
+                                    <i class="flaticon-clock"></i>
+                                    <div class="info-texts">
+                                        <strong>Lapangan Tersedia</strong>
+                                        <p>{{ $countAvailable }}</p>
+                                    </div>
+                                </div>
+                                <div class="single-info">
+                                    <i class="flaticon-footprints"></i>
+                                    <div class="info-texts">
+                                        <strong>Tour Type</strong>
+                                        <p>4 Days</p>
+                                    </div>
+                                </div>
+                                <div class="single-info">
+                                    <i class="flaticon-traveller"></i>
+                                    <div class="info-texts">
+                                        <strong>Group Size</strong>
+                                        <p>30 People</p>
+                                    </div>
+                                </div>
+                                <div class="single-info">
+                                    <i class="flaticon-translate"></i>
+                                    <div class="info-texts">
+                                        <strong>Languages</strong>
+                                        <p>Any Language</p>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="tab-content p-tab-content" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                     aria-labelledby="pills-home-tab">
@@ -285,7 +288,7 @@
                                                         <h5>Leave Your Comment</h5>
                                                         <div class="row">
                                                             <div class="col-lg-6">
-                                                                <input type="text" placeholder="Your Full Name">
+                                                                <input type="text" placeholder="Nama">
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <input type="text" placeholder="Your Email">
@@ -327,66 +330,49 @@
                                         <h5 class="package-d-head">Booking Lapangan Ini</h5>
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <input type="text" placeholder="Your Full Name">
+                                                <label>Nama Lengkap</label>
+                                                <input type="text" placeholder="Nama Lengkap" name="John Doe">
                                             </div>
                                             <div class="col-lg-12">
-                                                <input type="email" placeholder="Your Email">
+                                                <label>Email</label>
+                                                <input type="email" placeholder="Email" name="johndoe@gmail.com">
                                             </div>
                                             <div class="col-lg-12">
-                                                <input type="tel" placeholder="Phone">
+                                                <label>No HP</label>
+                                                <input type="tel" placeholder="No HP" name="085156842765">
                                             </div>
                                             <div class="col-lg-12">
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>Tickets Type</option>
-                                                    <option value="1">Travel With Bus</option>
-                                                    <option value="2">Travel With Plane</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>Adult</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>Child</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-lg-12">
+                                                <label>Tanggal</label>
                                                 <div class="calendar-input">
                                                     <input type="text" name="date" class="input-field date"
                                                         value="{{ $date }}" readonly style="cursor: default">
                                                     <i class="flaticon-calendar"></i>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-12">
+                                            <div class="col-lg-6">
+                                                <label>Mulai</label>
                                                 <div class="calendar-input">
-                                                    <input type="text" name="start" class="input-field" readonly
-                                                        style="cursor: default" id="start" placeholder="Jam Mulai">
+                                                    <input type="text" name="starts" class="input-field" readonly
+                                                        style="cursor: default" id="starts" placeholder="08:00">
                                                     <i class="flaticon-clock"></i>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-12">
+                                            <div class="col-lg-6">
+                                                <label>Selesai</label>
                                                 <div class="calendar-input">
-                                                    <input type="text" name="end" class="input-field check-out" id="end"
-                                                        placeholder="Jam Selesai">
+                                                    <input type="text" name="ends" class="input-field check-out" id="ends"
+                                                        placeholder="18:00">
                                                     <i class="flaticon-clock"></i>
                                                 </div>
                                             </div>
                                             <input type="hidden" class="form-control" value="{{ $date }}"
                                                 id="tgl" name="tgl" aria-describedby="emailHelp" placeholder="Tanggal"
                                                 required readonly>
-                                            <input type="hidden" name="date" class="input-field" id="date">
-                                            <h4 id="result-date" class="text-center">
+                                            <input type="hidden" name="start" class="input-field" id="datestart">
+                                            <input type="hidden" name="end" class="input-field" id="dateend">
                                             </h4>
                                             <div class="col-lg-12">
-                                                <input type="submit" value="Book Now">
+                                                <input type="submit" value="Pesan">
                                             </div>
                                         </div>
                                     </form>
