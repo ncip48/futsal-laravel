@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\WebhookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +26,6 @@ Route::get('/schedule', function () {
     return redirect('/');
 });
 Route::post('/searchbykode', [TransactionController::class, 'searchTransaction']);
+Route::post('/cancelbooking', [TransactionController::class, 'cancelTransaction']);
+Route::post('/webhook', [WebhookController::class, 'webhook']);
+Route::post('/pay', [PaymentController::class, 'pay']);

@@ -14,6 +14,7 @@ class ScheduleController extends Controller
         return DB::table('transactions')
             ->whereRaw('"' . $date . '" BETWEEN start AND DATE_ADD(end,interval -1 hour)')
             ->where('id_product', $id)
+            ->where('status', '!=', 3)
             ->get()
             ->count();
     }

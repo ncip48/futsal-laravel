@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Detail Pesanan')
+@section('title', 'Pembayaran')
 
 @section('content')
     <div class="breadcrumb-area">
@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="breadcrumb-wrap">
-                        <h2>Detail Pesanan</h2>
+                        <h2>Booking Berhasil</h2>
                         <ul class="breadcrumb-links">
                             <li>
                                 <a href="/">Home</a>
@@ -76,6 +76,11 @@
                     <div class="col-sm text-muted">Waktu</div>
                     <div class="col-sm text-sm-end font-weight-600">@time($result->start) - @time($result->end)</div>
                 </div>
+                {{-- <hr>
+            <div class="row">
+                <div class="col-sm text-muted">Mode of Payment</div>
+                <div class="col-sm text-sm-end font-weight-600">Credit Card</div>
+            </div> --}}
                 <hr>
                 <div class="row">
                     <div class="col-sm text-muted">Status</div>
@@ -102,6 +107,20 @@
                     <div class="col-sm text-sm-end text-6 font-weight-500">@currency($result->total_price)</div>
                 </div>
             </div>
+
+            <div class="mt-4 mb-0 d-flex justify-content-between">
+                <form method="POST" action="{{ url('pay') }}" style="margin-block-end: 0em;">
+                    @csrf
+                    <button type="submit" class="btn btn-payment me-3" id="pay-button">Bayar</button>
+                </form>
+                <form method="POST" action="{{ url('cancelbooking') }}" style="margin-block-end: 0em;">
+                    @csrf
+                    <input type="hidden" name="kode" value="{{ $result->code_booking }}" />
+                    <button type="submit" class="btn btn-payment-cancel">Batal</button>
+                </form>
+            </div>
+
+            <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre>
         </div>
     </div>
 @endsection

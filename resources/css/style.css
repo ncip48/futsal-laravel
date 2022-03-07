@@ -13,6 +13,11 @@ body {
     font-size: 16px;
     font-family: quicksand, sans-serif;
 }
+
+.font-weight-600 {
+    font-weight: 600 !important;
+}
+
 .bg-konz {
     background-color: rgb(255, 127, 71) !important;
 }
@@ -3188,7 +3193,8 @@ header > .header-area .nav-right {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-.package-d-sidebar .p-sidebar-form input[type="submit"] {
+.package-d-sidebar .p-sidebar-form input[type="submit"],
+.btn-payment {
     margin-top: 10px;
     width: 100%;
     display: block;
@@ -3204,7 +3210,35 @@ header > .header-area .nav-right {
     transition: all 0.3s;
     margin-bottom: 0;
 }
-.package-d-sidebar .p-sidebar-form input[type="submit"]:hover {
+
+.btn-payment {
+    /* width: 86%; */
+}
+
+.btn-payment-cancel {
+    margin-top: 10px;
+    width: 100%;
+    display: block;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.75px;
+    background: #ff7f47;
+    color: #fff;
+    padding: 14px 22px;
+    text-transform: capitalize;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    margin-bottom: 0;
+}
+
+.btn-payment-cancel:hover {
+    background: #304f47;
+    color: #fff;
+}
+
+.package-d-sidebar .p-sidebar-form input[type="submit"]:hover,
+.btn-payment:hover {
     background: #ff7f47;
 }
 .package-d-sidebar .p-sidebar-cards {

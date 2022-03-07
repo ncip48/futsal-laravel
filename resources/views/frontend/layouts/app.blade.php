@@ -257,7 +257,7 @@
         </div>
     </div>
 
-
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="Mid-client-iAW49GnBFbyLmHNh"></script>
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script src="/js/owl.carousel.min.js"></script>
     <script src="{{ mix('js/app.js') }}"></script>
