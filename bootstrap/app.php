@@ -11,6 +11,11 @@
 |
 */
 
+//header('Access-Control-Allow-Origin:  *');
+// header('Access-Control-Allow-Origin:  http://localhost:3000');
+// header('Access-Control-Allow-Headers:  Content-Type, X-Auth-Token, Authorization, Origin');
+// header('Access-Control-Allow-Methods:  POST, PUT');
+
 $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );

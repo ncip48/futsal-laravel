@@ -49,6 +49,10 @@
             $status = 'Pembayaran Kadaluarsa';
             $textclass = 'text-danger';
             break;
+        case 5:
+            $status = 'Konfirmasi Pembayaran';
+            $textclass = 'text-success';
+            break;
         default:
             break;
     }
@@ -109,10 +113,8 @@
             </div>
 
             <div class="mt-4 mb-0 d-flex justify-content-between">
-                <form method="POST" action="{{ url('pay') }}" style="margin-block-end: 0em;">
-                    @csrf
-                    <button type="submit" class="btn btn-payment me-3" id="pay-button">Bayar</button>
-                </form>
+                <input type="hidden" name="obj" id="obj" value="{{ $result }}">
+                <button class="btn btn-payment me-3" id="pay-button">Bayar</button>
                 <form method="POST" action="{{ url('cancelbooking') }}" style="margin-block-end: 0em;">
                     @csrf
                     <input type="hidden" name="kode" value="{{ $result->code_booking }}" />
@@ -120,7 +122,7 @@
                 </form>
             </div>
 
-            <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre>
+            {{-- <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre> --}}
         </div>
     </div>
 @endsection

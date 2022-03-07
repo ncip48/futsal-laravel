@@ -49,6 +49,10 @@
             $status = 'Pembayaran Kadaluarsa';
             $textclass = 'text-danger';
             break;
+        case 5:
+            $status = 'Konfirmasi Pembayaran';
+            $textclass = 'text-success';
+            break;
         default:
             break;
     }
@@ -100,6 +104,28 @@
                 <div class="row">
                     <div class="col-sm text-muted">Total Pembayaran</div>
                     <div class="col-sm text-sm-end text-6 font-weight-500">@currency($result->total_price)</div>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-sm rounded p-3 p-sm-4 mb-4">
+                <div class="row">
+                    <div class="col-sm text-muted">Status Pembayaran</div>
+                    <div class="col-sm text-sm-end font-weight-600">{{ $midtrans->transaction_status }}</div>
+                </div>
+                <hr>
+                @if (Arr::exists($midtrans, 'settlement_time'))
+                    <div class="row">
+                        <div class="col-sm text-muted">Tanggal Pembayaran</div>
+                        <div class="col-sm text-sm-end font-weight-600">{{ $midtrans->settlement_time }}</div>
+                    </div>
+                    <hr>
+                @endif
+                <div class="row">
+                    <div class="col-sm text-muted">QR</div>
+                    <div class="col-sm text-sm-end fw-bolder">
+                        <img src="https://api.sandbox.midtrans.com/v2/{{ $midtrans->payment_type }}/{{ $midtrans->transaction_id }}/qr-code"
+                            alt="" style="height: 150px;width:150px" />
+                    </div>
                 </div>
             </div>
         </div>

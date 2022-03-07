@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Crypt;
 
 class TransactionController extends Controller
 {
+
+    public function __construct()
+    {
+        \Midtrans\Config::$serverKey = config('midtrans.server_key');
+    }
+
     public function createTransaction(Request $request)
     {
         $rand = rand(1231, 7879);
@@ -47,12 +53,13 @@ class TransactionController extends Controller
     public function showTransaction(Request $request)
     {
         $id = Crypt::decrypt($request->order);
-        $transaction = Transaction::select('transactions.*', 'products.name as product_name')->where('code_booking', $id)->join('products', 'products.id', '=', 'transactions.id_product')->first();
+        $transaction = Transaction::select('transactions.*', 'products.name as product_name', 'products.price as product_price')->where('code_booking', $id)->join('products', 'products.id', '=', 'transactions.id_product')->first();
         $data['result'] = $transaction;
         if ($transaction->status == 0) {
             return view('frontend.payment', $data);
         } else {
-
+            $status = \Midtrans\Transaction::status($id);
+            $data['midtrans'] = $status;
             return view('frontend.booking', $data);
         }
     }

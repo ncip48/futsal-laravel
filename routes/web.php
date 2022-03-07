@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MidtransController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\TransactionController;
@@ -27,5 +28,5 @@ Route::get('/schedule', function () {
 });
 Route::post('/searchbykode', [TransactionController::class, 'searchTransaction']);
 Route::post('/cancelbooking', [TransactionController::class, 'cancelTransaction']);
-Route::post('/webhook', [WebhookController::class, 'webhook']);
-Route::post('/pay', [PaymentController::class, 'pay']);
+// Route::post('/webhook', [WebhookController::class, 'webhook']);
+Route::get('/pay', [PaymentController::class, 'pay']);

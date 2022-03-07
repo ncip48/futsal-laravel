@@ -61,7 +61,7 @@
                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
                         <nav class="main-nav">
                             <div class="navber-logo-sm">
-                                <img src="assets/images/logo-2.png" alt="" class="img-fluid">
+                                <img src="{{ asset('/images/logo-2.png') }}" alt="" class="img-fluid">
                             </div>
                             <ul>
                                 <li>

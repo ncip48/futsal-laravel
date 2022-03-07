@@ -453,6 +453,28 @@ function getFullDate(dates) {
     return year + "-" + month + "-" + dt + " " + hr + ":" + minutes;
 }
 
+function getHour(dates) {
+    let date = new Date(dates);
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let dt = date.getDate();
+
+    if (dt < 10) {
+        dt = "0" + dt;
+    }
+    if (month < 10) {
+        month = "0" + month;
+    }
+
+    var hr = date.getHours();
+    let minutes = date.getMinutes();
+    minutes = minutes <= 9 ? "0" + minutes : minutes;
+
+    // console.log(year + '-' + month + '-' + dt + ' ' + hr + ':' + minutes)
+
+    return hr + ":" + minutes;
+}
+
 $(document).ready(function () {
     // $("#form-div").hide();
     let date = $("#tgl").val();
@@ -502,5 +524,81 @@ $(document).ready(function () {
             $("#total_price").val(finalPrice);
             $("#total-div").html(finalPrice);
         },
+    });
+
+    $("#pay-button").click(function (event) {
+        event.preventDefault();
+        $(this).attr("disabled", "disabled");
+        var obj = JSON.parse($("#obj").val());
+
+        $.ajax({
+            url:
+                window.location.protocol +
+                "//" +
+                window.location.host +
+                "/api/token_midtrans",
+            cache: false,
+            type: "post",
+            data: {
+                code: obj.code_booking,
+                product: {
+                    name: `${obj.product_name} (${
+                        obj.duration
+                    } jam) - ${getHour(obj.start)} sampai ${getHour(obj.end)}`,
+                    price: obj.product_price,
+                    qty: obj.duration,
+                },
+                name: obj.name,
+                email: obj.email,
+                phone: obj.handphone,
+                total: obj.total_price,
+            },
+            success: function (data) {
+                //location = data;
+                // console.log("token = " + data);
+
+                var resultType = document.getElementById("result-type");
+                var resultData = document.getElementById("result-data");
+                function changeResult(type, data) {
+                    $("#result-type").val(type);
+                    $("#result-data").val(JSON.stringify(data));
+                    //resultType.innerHTML = type;
+                    //resultData.innerHTML = JSON.stringify(data);
+                }
+                snap.pay(data.result, {
+                    onSuccess: function (result) {
+                        changeResult("success", result);
+                        console.log(result.status_message);
+                        console.log(result);
+                        // $("#payment-form").submit();
+                        // document.getElementById("result-json").innerHTML +=
+                        //     JSON.stringify(result, null, 2);
+                        location.reload();
+                    },
+                    onPending: function (result) {
+                        changeResult("pending", result);
+                        console.log(result.status_message);
+                        // $("#payment-form").submit();
+                        // document.getElementById("result-json").innerHTML +=
+                        //     JSON.stringify(result, null, 2);
+                        location.reload();
+                    },
+                    onError: function (result) {
+                        changeResult("error", result);
+                        console.log(result.status_message);
+                        // $("#payment-form").submit();
+                        // document.getElementById("result-json").innerHTML +=
+                        //     JSON.stringify(result, null, 2);
+                        location.reload();
+                    },
+                    onClose: function () {
+                        /* You may add your own implementation here */
+                        // alert('you closed the popup without finishing the payment');
+                        $("#pay-button").removeAttr("disabled");
+                        console.log("close");
+                    },
+                });
+            },
+        });
     });
 });
