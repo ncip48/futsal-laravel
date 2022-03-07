@@ -113,20 +113,27 @@
                     <div class="col-sm text-sm-end font-weight-600">{{ $midtrans->transaction_status }}</div>
                 </div>
                 <hr>
+                <div class="row">
+                    <div class="col-sm text-muted">Metode Pembayaran</div>
+                    <div class="col-sm text-sm-end font-weight-600">{{ $midtrans->payment_type }}</div>
+                </div>
+                <hr>
                 @if (Arr::exists($midtrans, 'settlement_time'))
                     <div class="row">
                         <div class="col-sm text-muted">Tanggal Pembayaran</div>
                         <div class="col-sm text-sm-end font-weight-600">{{ $midtrans->settlement_time }}</div>
                     </div>
-                    <hr>
                 @endif
-                <div class="row">
-                    <div class="col-sm text-muted">QR</div>
-                    <div class="col-sm text-sm-end fw-bolder">
-                        <img src="https://api.sandbox.midtrans.com/v2/{{ $midtrans->payment_type }}/{{ $midtrans->transaction_id }}/qr-code"
-                            alt="" style="height: 150px;width:150px" />
+                @if ($midtrans->transaction_status !== 'settlement')
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm text-muted">QR</div>
+                        <div class="col-sm text-sm-end fw-bolder">
+                            <img src="https://api.sandbox.midtrans.com/v2/{{ $midtrans->payment_type }}/{{ $midtrans->transaction_id }}/qr-code"
+                                alt="" style="height: 250px;width:250px;object-fit:contain" />
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>
