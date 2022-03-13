@@ -171,6 +171,8 @@
         var dates = new Date(date).getTime();
         var countDownDate = addMinutes(date, 15);
 
+        document.getElementById("time_expired").innerHTML = "Checking...";
+
         // Memperbarui hitungan mundur setiap 1 detik
         var x = setInterval(function() {
 
@@ -199,7 +201,7 @@
             if (distance < 0) {
                 clearInterval(x);
                 document.getElementById("time_expired").innerHTML = "EXPIRED";
-                // document.getElementById("checktime").style.display = "none";
+                document.getElementById("checktime").style.display = "none";
             }
         }, 1000);
     </script>

@@ -11,18 +11,19 @@ class ScheduleController extends Controller
 {
     public function checkSchedule($date, $id)
     {
+        //status = 0:waiting, 1:sukses, 2:processing, 3:cancel, 4:expired, 5:waiting payment
         return DB::table('transactions')
             ->whereRaw('"' . $date . '" BETWEEN start AND DATE_ADD(end,interval -1 hour)')
             ->where('id_product', $id)
             ->where('status', '!=', 3)
+            ->where('status', '!=', 4)
             ->get()
             ->count();
     }
 
     public function searchSchedule(Request $request)
     {
-        dd($request->all());  //to check all the datas dumped from the form
-        //if your want to get single element,someName in this case
+        dd($request->all());
         $someName = $request->someName;
         return redirect('schedule');
     }
@@ -33,8 +34,6 @@ class ScheduleController extends Controller
         $data['date'] = $request->date;
         $data['type'] = $request->type;
         $data['product'] = Product::where('id', $request->type)->first();
-        // $wordlist = Wordlist::where('id', '<=', $correctedComparisons)->get();
-        // $data['schedule'] = Transaction::whereBetween('')
         return view('frontend.schedule', $data);
     }
 }
