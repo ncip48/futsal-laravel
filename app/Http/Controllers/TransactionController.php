@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 //status = 0:waiting, 1:sukses, 2:processing, 3:cancel, 4:expired
 
@@ -62,5 +63,14 @@ class TransactionController extends Controller
             $data['midtrans'] = $status;
             return view('frontend.booking', $data);
         }
+    }
+
+    public function downloadInvoice(Request $request)
+    {
+        $id = Crypt::decrypt($request->id);
+        $data['id'] = $id;
+        $data['asdf'] = "asdf";
+        $pdf = PDF::loadView('frontend.pdf.invoice', $data);
+        return $pdf->download($id . '.pdf');
     }
 }

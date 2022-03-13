@@ -78,7 +78,7 @@
 
     <div class="col-md-8 col-lg-6 col-xl-5 mx-auto pt-120 pb-120">
         <div class="container">
-            <div class="bg-white shadow-sm rounded p-3 p-sm-4 mb-4">
+            <div class="bg-white shadow-sm rounded p-3 p-sm-4 mb-2">
                 <div class="row">
                     <div class="col-sm text-muted">Kode Booking</div>
                     <div class="col-sm text-sm-end fw-bolder">{{ $result->code_booking }}</div>
@@ -124,7 +124,11 @@
                     <div class="col-sm text-sm-end text-6 font-weight-500">@currency($result->total_price)</div>
                 </div>
             </div>
-
+            <div class="text-end">
+                <a href={{ url('invoice?id=') }}{{ Crypt::encrypt($result->code_booking) }}
+                    class="btn-link text-muted mx-3 my-2 align-items-center d-inline-flex"><span class="text-5 me-2"><i
+                            class="bx bxs-file-pdf"></i></span>Invoice</a>
+            </div>
             <div class="bg-white shadow-sm rounded p-3 p-sm-4 mb-4">
                 <div class="row">
                     <div class="col-sm text-muted">Status Pembayaran</div>
