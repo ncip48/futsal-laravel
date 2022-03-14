@@ -70,7 +70,21 @@ class TransactionController extends Controller
         $id = Crypt::decrypt($request->id);
         $data['id'] = $id;
         $data['asdf'] = "asdf";
+        $transaction = Transaction::select('transactions.*', 'products.name as product_name', 'products.price as product_price')->where('code_booking', $id)->join('products', 'products.id', '=', 'transactions.id_product')->first();
+        $data['result'] = $transaction;
         $pdf = PDF::loadView('frontend.pdf.invoice', $data);
         return $pdf->download($id . '.pdf');
+    }
+
+    public function changeStatusTrx(Request $request)
+    {
+        $code = $request->code;
+        $status = $request->status;
+        $trx = Transaction::where('code_booking', $code)->update(['status' => $status]);
+        if ($trx) {
+            return ['code' => 1, 'message' => 'success', 'status_trx' => $status];
+        } else {
+            return ['code' => 0, 'message' => 'failed'];
+        }
     }
 }

@@ -139,11 +139,13 @@
                     <div class="col-sm text-muted">Metode Pembayaran</div>
                     <div class="col-sm text-sm-end font-weight-600">{{ $midtrans->payment_type }}</div>
                 </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm text-muted">Batas Pembayaran</div>
-                    <div class="col-sm text-sm-end font-weight-600" id="time_expired"></div>
-                </div>
+                @if ($midtrans->transaction_status !== 'settlement')
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm text-muted">Batas Pembayaran</div>
+                        <div class="col-sm text-sm-end font-weight-600" id="time_expired"></div>
+                    </div>
+                @endif
                 @if (Arr::exists($midtrans, 'settlement_time'))
                     <hr>
                     <div class="row">

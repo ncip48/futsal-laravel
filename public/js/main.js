@@ -526,6 +526,27 @@ $(document).ready(function () {
         },
     });
 
+    function changeStatusAPI(code, status) {
+        $.ajax({
+            url:
+                window.location.protocol +
+                "//" +
+                window.location.host +
+                "/api/change_status",
+            cache: false,
+            type: "post",
+            data: {
+                code,
+                status,
+            },
+            success: function (data) {
+                //location = data;
+                // console.log("token = " + data);
+                console.log(data);
+            },
+        });
+    }
+
     $("#pay-button").click(function (event) {
         event.preventDefault();
         $(this).attr("disabled", "disabled");
@@ -573,15 +594,17 @@ $(document).ready(function () {
                         // $("#payment-form").submit();
                         // document.getElementById("result-json").innerHTML +=
                         //     JSON.stringify(result, null, 2);
-                        location.reload();
+                        changeStatusAPI(obj.code_booking, 1);
+                        // location.reload();
                     },
                     onPending: function (result) {
                         changeResult("pending", result);
-                        console.log(result.status_message);
+                        console.log(result);
                         // $("#payment-form").submit();
                         // document.getElementById("result-json").innerHTML +=
                         //     JSON.stringify(result, null, 2);
-                        location.reload();
+                        changeStatusAPI(obj.code_booking, 5);
+                        // location.reload();
                     },
                     onError: function (result) {
                         changeResult("error", result);

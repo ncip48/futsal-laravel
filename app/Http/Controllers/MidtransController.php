@@ -31,6 +31,29 @@ class MidtransController extends Controller
 
         // $enable_payments = array('gopay', 'bank_transfer');
         $enable_payments = array('gopay', 'shopeepay');
+        // "enabled_payments": [
+        //     "credit_card",
+        //     "gopay",
+        //     "shopeepay",
+        //     "permata_va",
+        //     "bca_va",
+        //     "bni_va",
+        //     "bri_va",
+        //     "echannel",
+        //     "other_va",
+        //     "danamon_online",
+        //     "mandiri_clickpay",
+        //     "cimb_clicks",
+        //     "bca_klikbca",
+        //     "bca_klikpay",
+        //     "bri_epay",
+        //     "xl_tunai",
+        //     "indosat_dompetku",
+        //     "kioson",
+        //     "Indomaret",
+        //     "alfamart",
+        //     "akulaku"
+        // ]
         // Required
         $transaction = [
             'enabled_payments' => $enable_payments,
