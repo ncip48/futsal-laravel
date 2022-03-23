@@ -132,7 +132,7 @@
             <div class="bg-white shadow-sm rounded p-3 p-sm-4 mb-4">
                 <div class="row">
                     <div class="col-sm text-muted">Status Pembayaran</div>
-                    <div class="col-sm text-sm-end font-weight-600">{{ $midtrans_status }}</div>
+                    <div class="col-sm text-sm-end font-weight-600" id="status_pembayaran">{{ $midtrans_status }}</div>
                 </div>
                 <hr>
                 <div class="row">
@@ -208,6 +208,7 @@
                 clearInterval(x);
                 document.getElementById("time_expired").innerHTML = "EXPIRED";
                 document.getElementById("checktime").style.display = "none";
+                document.getElementById("status_pembayaran").innerHTML = "Kadaluarsa";
             }
         }, 1000);
     </script>
