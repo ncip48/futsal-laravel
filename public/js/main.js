@@ -595,7 +595,7 @@ $(document).ready(function () {
                         // document.getElementById("result-json").innerHTML +=
                         //     JSON.stringify(result, null, 2);
                         changeStatusAPI(obj.code_booking, 1);
-                        // location.reload();
+                        location.reload();
                     },
                     onPending: function (result) {
                         changeResult("pending", result);
@@ -604,7 +604,7 @@ $(document).ready(function () {
                         // document.getElementById("result-json").innerHTML +=
                         //     JSON.stringify(result, null, 2);
                         changeStatusAPI(obj.code_booking, 5);
-                        // location.reload();
+                        location.reload();
                     },
                     onError: function (result) {
                         changeResult("error", result);
