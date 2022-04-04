@@ -31,3 +31,6 @@ Route::post('/cancelbooking', [TransactionController::class, 'cancelTransaction'
 // Route::post('/webhook', [WebhookController::class, 'webhook']);
 Route::get('/pay', [PaymentController::class, 'pay']);
 Route::get('/invoice', [TransactionController::class, 'downloadInvoice']);
+Route::get('/profile', function () {
+    return view('frontend.profile');
+});

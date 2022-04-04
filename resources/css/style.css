@@ -5300,3 +5300,382 @@ li.package-card-sm .package-info h5 span {
     font-weight: 400;
     font-size: 0.75rem;
 }
+
+
+.nav-tabs {
+    border-bottom: none;
+}
+
+.myaccount .tab-content {
+    margin-top: 50px;
+}
+
+.myaccount-nav {
+    position: relative;
+}
+
+.myaccount .nav-item {
+    padding: 15px 25px;
+    margin-right: 20px;
+    color: #fff;
+    background: #62ac1e;
+    font-size: 16px;
+    position: relative;
+    text-transform: capitalize;
+}
+
+.myaccount .nav-link:focus {
+    color: #fff;
+}
+
+.myaccount .nav-item i {
+    margin-right: 10px;
+}
+
+.myaccount .nav-item.active {
+    background: #093479;
+    color: #fff;
+}
+
+.myaccount .nav-item.active:after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #093479;
+    position: absolute;
+    top: 100%;
+    right: 45%;
+}
+
+.dashboard-infobox {
+    border: 1px solid #cecece;
+    padding: 10px 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.dashboard-infobox i {
+    font-size: 96px;
+    color: #093479;
+}
+
+.dashboard-infobox p {
+    font-size: 16px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.dashboard-infobox p span {
+    color: #62ac1e;
+    font-size: 26px;
+    /*float: left;*/
+}
+
+@media (min-width: 992px) {
+    .padding-left-60 {
+        padding-left: 60px !important;
+    }
+}
+
+.recent-activities {
+    box-shadow: 2px 2px 18px #cecece;
+    background: #fff;
+}
+
+.recent-activities .head-sec {
+    padding: 25px;
+}
+
+.recent-activities .head-sec h3 {
+    margin: 0;
+    font-size: 26px;
+    text-transform: uppercase;
+}
+
+.recent-activities .content-sec p {
+    padding: 25px;
+    border-top: 1px solid #cecece;
+    color: #999999;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.recent-activities .content-sec p:hover {
+    background: #f3f3f3;
+}
+
+.recent-activities .content-sec p {
+    font-size: 18px;
+}
+
+.recent-activities .content-sec p i {
+    margin-right: 30px;
+}
+
+.invoices {
+    box-shadow: 2px 2px 18px #cecece;
+    background: #fff;
+    margin-top: 60px;
+}
+
+.invoices .head-sec {
+    padding: 30px;
+}
+
+.invoices .head-sec h3 {
+    margin: 0;
+    font-size: 26px;
+    text-transform: uppercase;
+}
+
+.invoices .content-sec .content-details {
+    padding: 25px;
+    padding-left: 60px;
+    position: relative;
+    border-top: 1px solid #cecece;
+    color: #999999;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.invoices .content-sec .content-details:hover {
+    background: #f3f3f3;
+}
+
+.invoices .content-sec .content-details h4 {
+    display: inline-block;
+    color: #000000;
+    min-width: 180px;
+    font-size: 20px;
+}
+
+.invoices .content-sec .content-details i {
+    margin-right: 30px;
+    font-size: 22px;
+    position: absolute;
+    left: 25px
+}
+
+.profile-details {
+    background: #fff;
+}
+
+.profile-details .head-profile {
+    background: #f3f3f3;
+    padding: 30px;
+}
+
+.profile-details .content-profile {
+    padding: 30px;
+}
+
+.profile-details .content-profile .info {
+    margin-bottom: 20px;
+    min-height: 20px;
+}
+
+.profile-details .content-profile .info i {
+    color: #093479;
+}
+
+.profile-details .content-profile .info p.title {
+    color: #66a91e;
+}
+
+.detail-profile {
+    padding: 30px;
+}
+
+.content-profile a.button {
+    background-color: #083063;
+    border: none;
+    color: #fff;
+}
+
+.content-booking .booking-detail {
+    padding-left: 20px;
+}
+
+.booking-details {
+    background: #fff;
+    border: 1px solid #cecece;
+}
+
+.booking-details .head-booking {
+    background: #f3f3f3;
+    padding: 30px;
+}
+
+.booking-details .content-booking {}
+
+.booking-details .booking-info .booking-date {
+    width: 170px;
+    height: 170px;
+    background: #f3f3f3;
+    border-bottom: 3px solid #093479;
+    text-align: center;
+    padding: 40px 0px;
+}
+
+.booking-details .booking-info .booking-date p {
+    color: #093479;
+}
+
+.booking-details .booking-info .booking-date p.date {
+    font-size: 72px;
+}
+
+.booking-details .booking-info .booking-date p.month {
+    font-size: 36px;
+    padding-top: 20px;
+}
+
+.bookbtn {
+    display: block;
+    text-align: center;
+    border: 1px solid;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-message {
+    color: #66a91e;
+    border-color: #66a91e;
+}
+
+.btn-aprove {
+    color: #66a91e;
+    border-color: #66a91e;
+}
+
+.btn-cancle {
+    color: #fff;
+    border-color: #093479;
+    background: #093479;
+}
+
+.booking-details .detail-info {
+    display: block;
+    clear: both;
+    margin-bottom: 10px;
+    min-height: 25px;
+    line-height: 28px;
+}
+
+.booking-details .booking-detail h3 {
+    color: #66a91e;
+    margin-top: 0;
+    padding-left: 15px;
+}
+
+.booking-details .booking-info {
+    overflow: hidden;
+    /* height: 1%; */
+    padding: 30px;
+    border-top: 1px solid #cecece;
+}
+
+.booking-details .booking-detail .detail-info i {
+    color: #093479;
+    line-height: 28px;
+}
+
+.booking-details .booking-detail .detail-info p {
+    color: #66a91e;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.wish-list {
+    box-shadow: 2px 2px 18px #cecece;
+    background: #fff;
+    height: 1%;
+    overflow: hidden;
+}
+
+.wish-list .wish-listitem {
+    padding: 30px;
+    border-bottom: 1px solid #cecece;
+    height: 1%;
+    overflow: hidden;
+}
+
+.wish-list .wish-listitem h3 {
+    color: #66a91e;
+    margin-top: 0;
+    text-transform: capitalize;
+    font-size: 30px;
+}
+
+.wish-list .rating span {
+    color: #093479;
+}
+
+.wish-list .wish-listitem p {
+    color: #7c7c7c;
+    padding-top: 15px;
+}
+
+.wish-list .cost-total {
+    color: #00417d;
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.wish-list .buttons {
+    text-align: right;
+}
+
+.wish-list .buttons .btn {
+    border: 1px solid;
+    border-radius: 0;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
+.wish-list .buttons .book-btn {
+    color: #00417d;
+    border-color: #00417d;
+    margin-right: 20px;
+}
+
+.wish-list .buttons .remove-btn {
+    color: #fff;
+    border-color: #093479;
+    background: #093479;
+}
+
+.ccards {
+    box-shadow: 2px 2px 18px #cecece;
+    padding: 30px;
+    background: #fff;
+}
+
+.ccards h5 {
+    text-transform: capitalize;
+    color: #082f7a;
+}
+
+.ccards .form-control {
+    width: 50%;
+    border-color: #cecece;
+}
+
+.ccards input[type="submit"] {
+    width: auto;
+    background: #093479;
+    color: #fff;
+}
+
+.ccards p.notifications {
+    color: #093479;
+}
+
+.credit-cart-setting {
+    overflow: hidden;
+    height: 1%;
+}
+
